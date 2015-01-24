@@ -1,0 +1,16 @@
+ORPort 443
+Nickname {{ grains['fqdn'] }}
+
+# Relay node
+Exitpolicy reject *:*
+
+# Allow a monthly max of traffic
+AccountingStart month 1 00:00
+AccountingMax {{ pillar['bandwidth'] }}
+
+# Don't use more than one node in the cluster for a circuit
+#
+# TODO: Find a better way to find all nicknames/fingerprints
+# in the cluster
+#
+MyFamily {{ pillar['family'] }}

@@ -1,0 +1,5 @@
+base:
+    '*':
+        - swap
+        - tor
+        - stem
